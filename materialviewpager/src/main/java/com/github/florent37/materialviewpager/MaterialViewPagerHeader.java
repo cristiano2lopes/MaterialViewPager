@@ -6,10 +6,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.ViewTreeObserver;
 
-import android.support.v4.view.ViewCompat;
-
-import static com.github.florent37.materialviewpager.Utils.dpToPx;
-
 /**
  * Created by florentchampigny on 25/04/15.
  * A class containing references to views inside MaterialViewPager's header
@@ -18,7 +14,7 @@ public class MaterialViewPagerHeader {
 
     protected Context context;
 
-    protected View toolbarLayout;
+    public View toolbarLayout;
     protected Toolbar toolbar;
     protected View mPagerSlidingTabStrip;
 
@@ -46,21 +42,21 @@ public class MaterialViewPagerHeader {
         this.toolbarLayout = (View) toolbar.getParent();
     }
 
-    public static MaterialViewPagerHeader withToolbar(Toolbar toolbar) {
-        return new MaterialViewPagerHeader(toolbar);
+    public static com.github.florent37.materialviewpager.MaterialViewPagerHeader withToolbar(Toolbar toolbar) {
+        return new com.github.florent37.materialviewpager.MaterialViewPagerHeader(toolbar);
     }
 
     public Context getContext() {
         return context;
     }
 
-    public MaterialViewPagerHeader withPagerSlidingTabStrip(View pagerSlidingTabStrip) {
+    public com.github.florent37.materialviewpager.MaterialViewPagerHeader withPagerSlidingTabStrip(View pagerSlidingTabStrip) {
         this.mPagerSlidingTabStrip = pagerSlidingTabStrip;
 
         mPagerSlidingTabStrip.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
             @Override
             public boolean onPreDraw() {
-                finalTabsY = dpToPx(-2, context);
+                finalTabsY = com.github.florent37.materialviewpager.Utils.dpToPx(-2, context);
 
                 mPagerSlidingTabStrip.getViewTreeObserver().removeOnPreDrawListener(this);
                 return false;
@@ -70,17 +66,17 @@ public class MaterialViewPagerHeader {
         return this;
     }
 
-    public MaterialViewPagerHeader withHeaderBackground(View headerBackground) {
+    public com.github.florent37.materialviewpager.MaterialViewPagerHeader withHeaderBackground(View headerBackground) {
         this.headerBackground = headerBackground;
         return this;
     }
 
-    public MaterialViewPagerHeader withStatusBackground(View statusBackground) {
+    public com.github.florent37.materialviewpager.MaterialViewPagerHeader withStatusBackground(View statusBackground) {
         this.statusBackground = statusBackground;
         return this;
     }
 
-    public MaterialViewPagerHeader withToolbarLayoutBackground(View toolbarLayoutBackground) {
+    public com.github.florent37.materialviewpager.MaterialViewPagerHeader withToolbarLayoutBackground(View toolbarLayoutBackground) {
         this.toolbarLayoutBackground = toolbarLayoutBackground;
         return this;
     }
@@ -94,7 +90,7 @@ public class MaterialViewPagerHeader {
         return result;
     }
 
-    public MaterialViewPagerHeader withLogo(View logo) {
+    public com.github.florent37.materialviewpager.MaterialViewPagerHeader withLogo(View logo) {
         this.mLogo = logo;
 
         //when logo get a height, initialise initial & final logo positions
@@ -109,7 +105,7 @@ public class MaterialViewPagerHeader {
                 originalTitleX = ViewCompat.getX(mLogo);
 
                 originalTitleHeight = mLogo.getHeight();
-                finalTitleHeight = dpToPx(21, context);
+                finalTitleHeight = com.github.florent37.materialviewpager.Utils.dpToPx(21, context);
 
                 //the final scale of the logo
                 finalScale = finalTitleHeight / originalTitleHeight;
@@ -118,7 +114,7 @@ public class MaterialViewPagerHeader {
 
                 //(mLogo.getWidth()/2) *(1-finalScale) is the margin left added by the scale() on the logo
                 //when logo scaledown, the content stay in center, so we have to anually remove the left padding
-                finalTitleX = dpToPx(52f, context) - (mLogo.getWidth() / 2) * (1 - finalScale);
+                finalTitleX = Utils.dpToPx(52f, context) - (mLogo.getWidth() / 2) * (1 - finalScale);
 
                 toolbarLayout.getViewTreeObserver().removeOnPreDrawListener(this);
                 return false;

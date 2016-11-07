@@ -107,7 +107,7 @@ public class MaterialViewPagerImageHelper {
     }
 
     public static void setImageLoadListener(MaterialViewPager.OnImageLoadListener imageLoadListener) {
-        MaterialViewPagerImageHelper.imageLoadListener = imageLoadListener;
+        com.github.florent37.materialviewpager.header.MaterialViewPagerImageHelper.imageLoadListener = imageLoadListener;
     }
 }
 

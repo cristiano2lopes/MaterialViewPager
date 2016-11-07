@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
 import android.support.v4.view.ViewCompat;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.webkit.WebSettings;
@@ -32,7 +33,7 @@ public class MaterialViewPagerHelper {
      * @param context  the context
      * @param animator the current MaterialViewPagerAnimator
      */
-    public static void register(Context context, MaterialViewPagerAnimator animator) {
+    public static void register(Context context, com.github.florent37.materialviewpager.MaterialViewPagerAnimator animator) {
         hashMap.put(context, animator);
     }
 
@@ -49,13 +50,21 @@ public class MaterialViewPagerHelper {
      *
      * @param context          current context
      * @param recyclerView     the scrollable
-     * @param onScrollListener use it if you want to get a callback of the RecyclerView
      */
     public static void registerRecyclerView(Context context, RecyclerView recyclerView) {
         if (context != null && hashMap.containsKey(context)) {
-            MaterialViewPagerAnimator animator = hashMap.get(context);
+            com.github.florent37.materialviewpager.MaterialViewPagerAnimator animator = hashMap.get(context);
             if (animator != null) {
                 animator.registerRecyclerView(recyclerView);
+            }
+        }
+    }
+
+    public static void registerNestedScrollView(Context context, NestedScrollView nestedScrollView) {
+        if (context != null && hashMap.containsKey(context)) {
+            com.github.florent37.materialviewpager.MaterialViewPagerAnimator animator = hashMap.get(context);
+            if (animator != null) {
+                animator.registerNestedScrollView(nestedScrollView);
             }
         }
     }
@@ -72,7 +81,7 @@ public class MaterialViewPagerHelper {
     @Deprecated
     public static void registerWebView(Activity activity, ObservableWebView webView, ObservableScrollViewCallbacks observableScrollViewCallbacks) {
         if (activity != null && hashMap.containsKey(activity)) {
-            MaterialViewPagerAnimator animator = hashMap.get(activity);
+            com.github.florent37.materialviewpager.MaterialViewPagerAnimator animator = hashMap.get(activity);
             if (animator != null) {
                 animator.registerWebView(webView, observableScrollViewCallbacks);
             }
@@ -90,7 +99,7 @@ public class MaterialViewPagerHelper {
      */
     public static void registerScrollView(Activity activity, ObservableScrollView mScrollView, ObservableScrollViewCallbacks observableScrollViewCallbacks) {
         if (activity != null && hashMap.containsKey(activity)) {
-            MaterialViewPagerAnimator animator = hashMap.get(activity);
+            com.github.florent37.materialviewpager.MaterialViewPagerAnimator animator = hashMap.get(activity);
             if (animator != null) {
                 animator.registerScrollView(mScrollView, observableScrollViewCallbacks);
             }
@@ -103,7 +112,7 @@ public class MaterialViewPagerHelper {
      * @param context the context
      * @return current MaterialViewPagerAnimator
      */
-    public static MaterialViewPagerAnimator getAnimator(Context context) {
+    public static com.github.florent37.materialviewpager.MaterialViewPagerAnimator getAnimator(Context context) {
         return hashMap.get(context);
     }
 
@@ -122,7 +131,7 @@ public class MaterialViewPagerHelper {
     public static void injectHeader(final WebView webView, boolean withAnimation) {
         if (webView != null) {
 
-            MaterialViewPagerAnimator animator = MaterialViewPagerHelper.getAnimator(webView.getContext());
+            MaterialViewPagerAnimator animator = com.github.florent37.materialviewpager.MaterialViewPagerHelper.getAnimator(webView.getContext());
             if (animator != null) {
 
                 WebSettings webSettings = webView.getSettings();

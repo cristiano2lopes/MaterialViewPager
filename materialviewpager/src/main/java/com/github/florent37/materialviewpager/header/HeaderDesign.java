@@ -16,29 +16,29 @@ public class HeaderDesign {
     private HeaderDesign() {
     }
 
-    public static HeaderDesign fromColorAndUrl(@ColorInt int color, String imageUrl) {
-        HeaderDesign headerDesign = new HeaderDesign();
+    public static com.github.florent37.materialviewpager.header.HeaderDesign fromColorAndUrl(@ColorInt int color, String imageUrl) {
+        com.github.florent37.materialviewpager.header.HeaderDesign headerDesign = new com.github.florent37.materialviewpager.header.HeaderDesign();
         headerDesign.color = color;
         headerDesign.imageUrl = imageUrl;
         return headerDesign;
     }
 
-    public static HeaderDesign fromColorResAndUrl(@ColorRes int colorRes, String imageUrl) {
-        HeaderDesign headerDesign = new HeaderDesign();
+    public static com.github.florent37.materialviewpager.header.HeaderDesign fromColorResAndUrl(@ColorRes int colorRes, String imageUrl) {
+        com.github.florent37.materialviewpager.header.HeaderDesign headerDesign = new com.github.florent37.materialviewpager.header.HeaderDesign();
         headerDesign.colorRes = colorRes;
         headerDesign.imageUrl = imageUrl;
         return headerDesign;
     }
 
-    public static HeaderDesign fromColorAndDrawable(@ColorInt int color, Drawable drawable) {
-        HeaderDesign headerDesign = new HeaderDesign();
+    public static com.github.florent37.materialviewpager.header.HeaderDesign fromColorAndDrawable(@ColorInt int color, Drawable drawable) {
+        com.github.florent37.materialviewpager.header.HeaderDesign headerDesign = new com.github.florent37.materialviewpager.header.HeaderDesign();
         headerDesign.drawable = drawable;
         headerDesign.color = color;
         return headerDesign;
     }
 
-    public static HeaderDesign fromColorResAndDrawable(@ColorRes int colorRes, Drawable drawable) {
-        HeaderDesign headerDesign = new HeaderDesign();
+    public static com.github.florent37.materialviewpager.header.HeaderDesign fromColorResAndDrawable(@ColorRes int colorRes, Drawable drawable) {
+        com.github.florent37.materialviewpager.header.HeaderDesign headerDesign = new com.github.florent37.materialviewpager.header.HeaderDesign();
         headerDesign.colorRes = colorRes;
         headerDesign.drawable = drawable;
         return headerDesign;
