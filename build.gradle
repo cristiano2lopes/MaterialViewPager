@@ -34,4 +34,5 @@ allprojects {
         maven { url "http://dl.bintray.com/florent37/maven" }
         maven { url 'https://maven.fabric.io/public' }
     }
+    tasks.withType(Javadoc).all { enabled = false }
 }
