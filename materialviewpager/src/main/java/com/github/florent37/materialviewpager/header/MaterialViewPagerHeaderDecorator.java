@@ -14,7 +14,7 @@ import com.github.florent37.materialviewpager.Utils;
 /**
  * Created by florentchampigny on 27/05/2016.
  */
-public class MaterialViewPagerHEaderDecorator extends RecyclerView.ItemDecoration {
+public class MaterialViewPagerHeaderDecorator extends RecyclerView.ItemDecoration {
 
     boolean registered = false;
 
