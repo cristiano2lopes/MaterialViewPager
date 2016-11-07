@@ -10,7 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.github.florent37.materialviewpager.header.MaterialViewPagerHeaderDecorator;
+import com.github.florent37.materialviewpager.header.MaterialViewPagerHEaderDecorator;
 import com.github.florent37.materialviewpager.sample.R;
 import com.github.florent37.materialviewpager.sample.TestRecyclerViewAdapter;
 
@@ -52,7 +52,7 @@ public class RecyclerViewFragment extends Fragment {
         mRecyclerView.setHasFixedSize(true);
 
         //Use this now
-        mRecyclerView.addItemDecoration(new MaterialViewPagerHeaderDecorator());
+        mRecyclerView.addItemDecoration(new MaterialViewPagerHEaderDecorator());
 
         mAdapter = new TestRecyclerViewAdapter(mContentItems);
 
