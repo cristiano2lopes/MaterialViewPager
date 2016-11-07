@@ -1,6 +1,6 @@
-apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.android.library'
 apply plugin: 'com.github.ben-manes.versions'
+apply plugin: 'com.github.dcendents.android-maven'
 
 group='com.github.ptcardoso'
 
@@ -20,6 +20,8 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    defaultPublishConfig "productionRelease"
 }
 
 dependencies {
@@ -39,8 +41,6 @@ dependencies {
     compile 'com.jpardogo.materialtabstrip:library:1.1.0'
     compile 'com.github.ksoichiro:android-observablescrollview:1.6.0'
     compile 'com.github.bumptech.glide:glide:3.7.0'
-
-    compile 'com.github.jitpack-io:android-jitpack-library-example:1.5@aar'
 }
 
 ext {

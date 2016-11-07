@@ -1,6 +1,5 @@
-apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.android.library'
-
+apply plugin: 'com.github.dcendents.android-maven'
 
 group='com.github.ptcardoso'
 
@@ -20,6 +19,8 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    defaultPublishConfig "productionRelease"
 }
 
 dependencies {
