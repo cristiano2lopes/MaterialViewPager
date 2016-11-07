@@ -37,7 +37,7 @@ public class MaterialViewPagerKenBurnsHeader extends KenBurnsView {
      * @param fadeDuration TODO : remove Picasso
      */
     public void setImageUrl(final String urlImage, final int fadeDuration) {
-        MaterialViewPagerImageHelper.setImageUrl(this, urlImage, fadeDuration);
+        com.github.florent37.materialviewpager.header.MaterialViewPagerImageHelper.setImageUrl(this, urlImage, fadeDuration);
     }
 
     /**
@@ -47,7 +47,7 @@ public class MaterialViewPagerKenBurnsHeader extends KenBurnsView {
      * @param fadeDuration
      */
     public void setImageDrawable(final Drawable drawable, final int fadeDuration) {
-        MaterialViewPagerImageHelper.setImageDrawable(this, drawable, fadeDuration);
+        com.github.florent37.materialviewpager.header.MaterialViewPagerImageHelper.setImageDrawable(this, drawable, fadeDuration);
     }
 
 }

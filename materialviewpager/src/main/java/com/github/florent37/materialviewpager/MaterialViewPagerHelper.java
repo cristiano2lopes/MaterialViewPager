@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
 import android.support.v4.view.ViewCompat;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.webkit.WebSettings;
@@ -49,13 +50,21 @@ public class MaterialViewPagerHelper {
      *
      * @param context          current context
      * @param recyclerView     the scrollable
-     * @param onScrollListener use it if you want to get a callback of the RecyclerView
      */
     public static void registerRecyclerView(Context context, RecyclerView recyclerView) {
         if (context != null && hashMap.containsKey(context)) {
             MaterialViewPagerAnimator animator = hashMap.get(context);
             if (animator != null) {
                 animator.registerRecyclerView(recyclerView);
+            }
+        }
+    }
+
+    public static void registerNestedScrollView(Context context, NestedScrollView nestedScrollView) {
+        if (context != null && hashMap.containsKey(context)) {
+            MaterialViewPagerAnimator animator = hashMap.get(context);
+            if (animator != null) {
+                animator.registerNestedScrollView(nestedScrollView);
             }
         }
     }

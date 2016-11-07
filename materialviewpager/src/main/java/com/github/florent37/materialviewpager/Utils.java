@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Rect;
 import android.support.v4.view.ViewCompat;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
@@ -11,8 +12,6 @@ import android.view.View;
 import android.webkit.WebView;
 import android.widget.ListView;
 import android.widget.ScrollView;
-
-import android.support.v4.view.ViewCompat;
 
 import java.util.List;
 
@@ -109,6 +108,10 @@ public class Utils {
             RecyclerView recyclerView = (RecyclerView) view;
             int yOffset = recyclerView.computeVerticalScrollOffset();
             return yOffset != 0;
+        }else if(view instanceof NestedScrollView){
+            NestedScrollView nestedScrollView = (NestedScrollView) view;
+            int yOffset = nestedScrollView.computeVerticalScrollOffset();
+            return yOffset != 0;
         }
         return true;
     }
@@ -132,6 +135,8 @@ public class Utils {
             ((ListView) scroll).scrollTo(0, (int) yOffset);
         } else if (scroll instanceof WebView) {
             ((WebView) scroll).scrollTo(0, (int) yOffset);
+        } else if(scroll instanceof NestedScrollView){
+            ((NestedScrollView) scroll).scrollTo(0, (int) yOffset);
         }
     }
 

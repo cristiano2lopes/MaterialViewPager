@@ -6,8 +6,6 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.AttributeSet;
 
-import static com.github.florent37.materialviewpager.Utils.pxToDp;
-
 /**
  * Created by florentchampigny on 29/04/15.
  * <p/>
@@ -18,7 +16,7 @@ public class MaterialViewPagerSettings implements Parcelable {
     //attributes are protected and can be used by class from the same package
     //com.github.florent37.materialviewpager
 
-    public static final Parcelable.Creator<MaterialViewPagerSettings> CREATOR = new Parcelable.Creator<MaterialViewPagerSettings>() {
+    public static final Creator<MaterialViewPagerSettings> CREATOR = new Creator<MaterialViewPagerSettings>() {
         public MaterialViewPagerSettings createFromParcel(Parcel source) {
             return new MaterialViewPagerSettings(source);
         }
@@ -102,61 +100,61 @@ public class MaterialViewPagerSettings implements Parcelable {
      */
     protected void handleAttributes(Context context, AttributeSet attrs) {
         try {
-            TypedArray styledAttrs = context.obtainStyledAttributes(attrs, R.styleable.MaterialViewPager);
+            TypedArray styledAttrs = context.obtainStyledAttributes(attrs, com.github.florent37.materialviewpager.R.styleable.MaterialViewPager);
             {
-                headerLayoutId = styledAttrs.getResourceId(R.styleable.MaterialViewPager_viewpager_header, -1);
+                headerLayoutId = styledAttrs.getResourceId(com.github.florent37.materialviewpager.R.styleable.MaterialViewPager_viewpager_header, -1);
             }
             {
-                pagerTitleStripId = styledAttrs.getResourceId(R.styleable.MaterialViewPager_viewpager_pagerTitleStrip, -1);
+                pagerTitleStripId = styledAttrs.getResourceId(com.github.florent37.materialviewpager.R.styleable.MaterialViewPager_viewpager_pagerTitleStrip, -1);
                 if (pagerTitleStripId == -1) {
-                    pagerTitleStripId = R.layout.material_view_pager_pagertitlestrip_standard;
+                    pagerTitleStripId = com.github.florent37.materialviewpager.R.layout.material_view_pager_pagertitlestrip_standard;
                 }
             }
             {
-                viewpagerId = styledAttrs.getResourceId(R.styleable.MaterialViewPager_viewpager_viewpager, -1);
+                viewpagerId = styledAttrs.getResourceId(com.github.florent37.materialviewpager.R.styleable.MaterialViewPager_viewpager_viewpager, -1);
             }
             {
-                logoLayoutId = styledAttrs.getResourceId(R.styleable.MaterialViewPager_viewpager_logo, -1);
-                logoMarginTop = styledAttrs.getDimensionPixelSize(R.styleable.MaterialViewPager_viewpager_logoMarginTop, 0);
+                logoLayoutId = styledAttrs.getResourceId(com.github.florent37.materialviewpager.R.styleable.MaterialViewPager_viewpager_logo, -1);
+                logoMarginTop = styledAttrs.getDimensionPixelSize(com.github.florent37.materialviewpager.R.styleable.MaterialViewPager_viewpager_logoMarginTop, 0);
             }
             {
-                color = styledAttrs.getColor(R.styleable.MaterialViewPager_viewpager_color, 0);
+                color = styledAttrs.getColor(com.github.florent37.materialviewpager.R.styleable.MaterialViewPager_viewpager_color, 0);
             }
             {
-                headerHeightPx = styledAttrs.getDimensionPixelOffset(R.styleable.MaterialViewPager_viewpager_headerHeight, 200);
-                headerHeight = Math.round(pxToDp(headerHeightPx, context)); //convert to dp
+                headerHeightPx = styledAttrs.getDimensionPixelOffset(com.github.florent37.materialviewpager.R.styleable.MaterialViewPager_viewpager_headerHeight, 200);
+                headerHeight = Math.round(Utils.pxToDp(headerHeightPx, context)); //convert to dp
             }
             {
-                headerAdditionalHeight = styledAttrs.getDimensionPixelOffset(R.styleable.MaterialViewPager_viewpager_headerAdditionalHeight, 60);
+                headerAdditionalHeight = styledAttrs.getDimensionPixelOffset(com.github.florent37.materialviewpager.R.styleable.MaterialViewPager_viewpager_headerAdditionalHeight, 60);
             }
             {
-                headerAlpha = styledAttrs.getFloat(R.styleable.MaterialViewPager_viewpager_headerAlpha, 0.5f);
+                headerAlpha = styledAttrs.getFloat(com.github.florent37.materialviewpager.R.styleable.MaterialViewPager_viewpager_headerAlpha, 0.5f);
             }
             {
-                imageHeaderDarkLayerAlpha = styledAttrs.getFloat(R.styleable.MaterialViewPager_viewpager_imageHeaderDarkLayerAlpha, 0.0f);
+                imageHeaderDarkLayerAlpha = styledAttrs.getFloat(com.github.florent37.materialviewpager.R.styleable.MaterialViewPager_viewpager_imageHeaderDarkLayerAlpha, 0.0f);
             }
             {
-                parallaxHeaderFactor = styledAttrs.getFloat(R.styleable.MaterialViewPager_viewpager_parallaxHeaderFactor, 1.5f);
+                parallaxHeaderFactor = styledAttrs.getFloat(com.github.florent37.materialviewpager.R.styleable.MaterialViewPager_viewpager_parallaxHeaderFactor, 1.5f);
                 parallaxHeaderFactor = Math.max(parallaxHeaderFactor, 1); //min=1
             }
             {
-                hideToolbarAndTitle = styledAttrs.getBoolean(R.styleable.MaterialViewPager_viewpager_hideToolbarAndTitle, false);
-                hideLogoWithFade = styledAttrs.getBoolean(R.styleable.MaterialViewPager_viewpager_hideLogoWithFade, false);
+                hideToolbarAndTitle = styledAttrs.getBoolean(com.github.florent37.materialviewpager.R.styleable.MaterialViewPager_viewpager_hideToolbarAndTitle, false);
+                hideLogoWithFade = styledAttrs.getBoolean(com.github.florent37.materialviewpager.R.styleable.MaterialViewPager_viewpager_hideLogoWithFade, false);
             }
             {
-                enableToolbarElevation = styledAttrs.getBoolean(R.styleable.MaterialViewPager_viewpager_enableToolbarElevation, false);
+                enableToolbarElevation = styledAttrs.getBoolean(com.github.florent37.materialviewpager.R.styleable.MaterialViewPager_viewpager_enableToolbarElevation, false);
             }
             {
-                displayToolbarWhenSwipe = styledAttrs.getBoolean(R.styleable.MaterialViewPager_viewpager_displayToolbarWhenSwipe, false);
+                displayToolbarWhenSwipe = styledAttrs.getBoolean(com.github.florent37.materialviewpager.R.styleable.MaterialViewPager_viewpager_displayToolbarWhenSwipe, false);
             }
             {
-                toolbarTransparent = styledAttrs.getBoolean(R.styleable.MaterialViewPager_viewpager_transparentToolbar, false);
+                toolbarTransparent = styledAttrs.getBoolean(com.github.florent37.materialviewpager.R.styleable.MaterialViewPager_viewpager_transparentToolbar, false);
             }
             {
-                animatedHeaderImage = styledAttrs.getBoolean(R.styleable.MaterialViewPager_viewpager_animatedHeaderImage, true);
+                animatedHeaderImage = styledAttrs.getBoolean(com.github.florent37.materialviewpager.R.styleable.MaterialViewPager_viewpager_animatedHeaderImage, true);
             }
             {
-                disableToolbar = styledAttrs.getBoolean(R.styleable.MaterialViewPager_viewpager_disableToolbar, false);
+                disableToolbar = styledAttrs.getBoolean(com.github.florent37.materialviewpager.R.styleable.MaterialViewPager_viewpager_disableToolbar, false);
             }
             styledAttrs.recycle();
         } catch (Exception e) {

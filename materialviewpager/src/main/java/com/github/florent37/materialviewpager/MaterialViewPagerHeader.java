@@ -6,10 +6,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.ViewTreeObserver;
 
-import android.support.v4.view.ViewCompat;
-
-import static com.github.florent37.materialviewpager.Utils.dpToPx;
-
 /**
  * Created by florentchampigny on 25/04/15.
  * A class containing references to views inside MaterialViewPager's header
@@ -18,7 +14,7 @@ public class MaterialViewPagerHeader {
 
     protected Context context;
 
-    protected View toolbarLayout;
+    public View toolbarLayout;
     protected Toolbar toolbar;
     protected View mPagerSlidingTabStrip;
 
@@ -60,7 +56,7 @@ public class MaterialViewPagerHeader {
         mPagerSlidingTabStrip.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
             @Override
             public boolean onPreDraw() {
-                finalTabsY = dpToPx(-2, context);
+                finalTabsY = Utils.dpToPx(-2, context);
 
                 mPagerSlidingTabStrip.getViewTreeObserver().removeOnPreDrawListener(this);
                 return false;
@@ -109,7 +105,7 @@ public class MaterialViewPagerHeader {
                 originalTitleX = ViewCompat.getX(mLogo);
 
                 originalTitleHeight = mLogo.getHeight();
-                finalTitleHeight = dpToPx(21, context);
+                finalTitleHeight = Utils.dpToPx(21, context);
 
                 //the final scale of the logo
                 finalScale = finalTitleHeight / originalTitleHeight;
@@ -118,7 +114,7 @@ public class MaterialViewPagerHeader {
 
                 //(mLogo.getWidth()/2) *(1-finalScale) is the margin left added by the scale() on the logo
                 //when logo scaledown, the content stay in center, so we have to anually remove the left padding
-                finalTitleX = dpToPx(52f, context) - (mLogo.getWidth() / 2) * (1 - finalScale);
+                finalTitleX = Utils.dpToPx(52f, context) - (mLogo.getWidth() / 2) * (1 - finalScale);
 
                 toolbarLayout.getViewTreeObserver().removeOnPreDrawListener(this);
                 return false;

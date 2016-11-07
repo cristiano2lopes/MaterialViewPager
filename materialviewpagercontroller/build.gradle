@@ -34,8 +34,6 @@ dependencies {
     compile ('com.github.florent37:materialviewpager:+@aar') {
         transitive = true
     }
-
-    compile 'com.github.jitpack-io:android-jitpack-library-example:1.5@aar'
 }
 
 ext {
